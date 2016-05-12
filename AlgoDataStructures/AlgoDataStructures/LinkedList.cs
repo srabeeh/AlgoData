@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace AlgoDataStructures
 {
-    class LinkedList<T> : System.Collections.Generic.ICollection<T>
+    public class LinkedList<T> : ICollection<T>
     {
         public LinkedListNode<T> Head { get; private set; }
 
         public LinkedListNode<T> Tail { get; private set; }
 
-        public void AddFirst(T Value)
+        public void AddFirst(T value)
         {
-            AddFirst(new LinkedListNode<T> (Value));
+            AddFirst(new LinkedListNode<T>(value));
         }
 
         public void AddFirst(LinkedListNode<T> node)
@@ -25,7 +26,7 @@ namespace AlgoDataStructures
 
             Head.Next = temp;
 
-           // Count++;
+           Count++;
 
             if (Count == 1)
             {
@@ -50,52 +51,146 @@ namespace AlgoDataStructures
             }
 
             Tail = node;
-           // Count++;
+
+            Count++;
         }
 
         public void Add(T item)
         {
-            throw new NotImplementedException();
+           AddFirst(item);
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            Head = null;
+            Tail = null;
+            Count = 0;
         }
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> current = Head;
+            while (current != null)
+            {
+                if (current.Value.Equals(item))
+                {
+                    return true;
+                }
+
+                current = current.Next;
+            }
+
+            return false;
         }
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> current = Head;
+            while (current != null)
+            {
+                array[arrayIndex++] = current.Value;
+                current = current.Next;
+            }
         }
 
-        public int Count
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public int Count { get; private set; }
 
         public bool IsReadOnly
         {
-            get { throw new NotImplementedException(); }
+            get { return false; }
         }
 
+        /// <summary>
+        /// Remove an item anywhere within the list
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns>True if an item was found and removed</returns>
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> previous = null;
+            LinkedListNode<T> current = Head;
+
+            while (current != null)
+            {
+                if (current.Value.Equals(item))
+                {
+                    if (previous != null)
+                    {
+                        previous.Next = current.Next;
+
+
+                        if (current.Next == null)
+                        {
+                            Tail = previous;
+                        }
+                        Count--;
+                    }
+                    else
+                    {
+                        RemoveFirst();
+                    }
+
+                    return true;
+                }
+
+                previous = current;
+                current = current.Next;
+            }
+            return false;
+        }
+
+        public void RemoveLast()
+        {
+            if (Count != 0)
+            {
+                if (Count == 1)
+                {
+                    Head = null;
+                    Tail = null;
+                }
+                else
+                {
+                    LinkedListNode<T> current = Head;
+                    while (current.Next != Tail)
+                    {
+                        current = current.Next;
+                    }
+
+                    current.Next = null;
+                    Tail = current;
+                }
+
+                Count--;
+            }
+        }
+
+        public void RemoveFirst()
+        {
+            if (Count != 0)
+            {
+                Head = Head.Next;
+                Count--;
+
+                if (Count == 0)
+                {
+                    Tail = null;
+                }
+            }
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> current = Head;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ((IEnumerable<T>) this).GetEnumerator();
         }
     }
 }

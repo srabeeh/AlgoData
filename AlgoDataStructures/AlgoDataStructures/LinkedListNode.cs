@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// 
+/// </summary>
 namespace AlgoDataStructures
 {
-    class LinkedListNode<T>
+    /// <summary>
+    /// Create a new node
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class LinkedListNode<T>
     {
         public LinkedListNode(T value)
         {
