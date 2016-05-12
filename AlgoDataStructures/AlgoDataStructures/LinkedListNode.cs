@@ -15,6 +15,6 @@ namespace AlgoDataStructures
 
         public T Value { get; set; }
 
-        public LinkedListNode<t> Next { get; set; }
+        public LinkedListNode<T> Next { get; set; }
     }
 }
