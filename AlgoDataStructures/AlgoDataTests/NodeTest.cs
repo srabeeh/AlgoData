@@ -60,9 +60,21 @@ namespace AlgoDataTests
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void CreateLinkedListUsingNodes()
         {
-            
+            Node first = new Node {Value = 5};
+
+            Node middle = new Node {Value = 10};
+
+            first.Next = middle;
+
+            Node last = new Node {Value = 20};
+
+            middle.Next = last;
+
+            Assert.AreEqual(first.Next, middle);
+            Assert.AreEqual(middle.Next, last);
+
         }
     }
 }

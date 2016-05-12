@@ -25,7 +25,7 @@ namespace AlgoDataStructures
 
             Head.Next = temp;
 
-            Count++;
+           // Count++;
 
             if (Count == 1)
             {
@@ -50,7 +50,7 @@ namespace AlgoDataStructures
             }
 
             Tail = node;
-            Count++;
+           // Count++;
         }
 
         public void Add(T item)
