@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoDataStructures
+namespace Nodes
 {
     class Program
     {
@@ -12,6 +12,5 @@ namespace AlgoDataStructures
         {
 
         }
-
     }
 }
