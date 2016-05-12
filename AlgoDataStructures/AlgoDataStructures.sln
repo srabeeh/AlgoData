@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "AlgoDataStructures\LinkedList.csproj", "{211BCADE-9056-4C20-B051-83602336B070}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{211BCADE-9056-4C20-B051-83602336B070}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeTests", "AlgoDataTests\NodeTests.csproj", "{3AD251E8-3D1A-4458-9A5F-3663FE03C245}"
 EndProject
