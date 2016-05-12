@@ -19,7 +19,7 @@ namespace NodeTests
             //
         }
 
-        private TestContext testContextInstance;
+        private TestContext _testContextInstance;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -29,11 +29,11 @@ namespace NodeTests
         {
             get
             {
-                return testContextInstance;
+                return _testContextInstance;
             }
             set
             {
-                testContextInstance = value;
+                _testContextInstance = value;
             }
         }
 
@@ -60,6 +60,7 @@ namespace NodeTests
         #endregion
 
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\TestData.csv", "TestData#csv", DataAccessMethod.Sequential), DeploymentItem("TestData.csv")]
         public void CreateLinkedListUsingNodes()
         {
             Node first = new Node {Value = 5};
