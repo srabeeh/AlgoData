@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList
+namespace DoubleLinkedList
 {
     public class LinkedList<T> : ICollection<T>
     {
@@ -26,14 +26,16 @@ namespace LinkedList
 
             Head.Next = temp;
 
-              Count++;
+           Count++;
 
             if (Count == 1)
             {
                 Tail = Head;
             }
-            
-         
+            else
+            {
+                temp.Previous = Head;
+            }
         }
 
         public void AddLast(T value)
@@ -50,10 +52,11 @@ namespace LinkedList
             else
             {
                 Tail.Next = node;
+
+                node.Previous = Tail;
             }
 
             Tail = node;
-
             Count++;
         }
 
@@ -125,6 +128,10 @@ namespace LinkedList
                         {
                             Tail = previous;
                         }
+                        else
+                        {
+                            current.Next.Previous = previous;
+                        }
                         Count--;
                     }
                     else
@@ -152,14 +159,8 @@ namespace LinkedList
                 }
                 else
                 {
-                    LinkedListNode<T> current = Head;
-                    while (current.Next != Tail)
-                    {
-                        current = current.Next;
-                    }
-
-                    current.Next = null;
-                    Tail = current;
+                    Tail.Previous.Next = null;
+                    Tail = Tail.Previous;
                 }
 
                 Count--;
@@ -176,6 +177,10 @@ namespace LinkedList
                 if (Count == 0)
                 {
                     Tail = null;
+                }
+                else
+                {
+                    Head.Previous = null;
                 }
             }
         }
