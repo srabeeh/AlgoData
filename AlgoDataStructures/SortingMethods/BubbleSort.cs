@@ -2,7 +2,7 @@
 
 namespace SortingMethods
 {
-    public class BubbleSort<T>:Tracker<T>, ISorter<T> where T : IComparable<T>
+    public class BubbleSort<T>:TrackSorting<T>, ISorter<T> where T : IComparable<T>
     {
         public void Sort(T[] items)
         {

@@ -2,7 +2,7 @@
 
 namespace SortingMethods
 {
-    public class QuickSort<T>: Tracker<T>, ISorter<T> where T : IComparable<T>
+    public class QuickSort<T>: TrackSorting<T>, ISorter<T> where T : IComparable<T>
     {
         Random _pivotRng = new Random();
 

@@ -18,7 +18,7 @@ namespace SortingMethods
         void Reset();
     }
 
-    public class Tracker<T> : IPerformanceTracker where T: IComparable<T>
+    public class TrackSorting<T> : IPerformanceTracker where T: IComparable<T>
     {
         long _comparisons;
         long _swaps;

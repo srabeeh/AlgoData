@@ -16,6 +16,27 @@ namespace SortingMethods
 
             sort.Sort(nums);
 
+            Console.WriteLine("Bubble Sorted numbers");
+
+            foreach (var number in nums)
+            {
+                     Console.WriteLine(number);
+            }
+
+            InsertionSort<int> insert = new InsertionSort<int>();
+
+            int[] insertSortNums = new[] { 215,55, 5, 10, 4, 6, 1, 8, 3, 9, 2, 7 };
+
+            insert.Sort(insertSortNums);
+
+            Console.WriteLine("Insertion Sort Numbers");
+
+            foreach (var number in insertSortNums)
+            {
+                Console.WriteLine(number);
+            }
+
+            Console.ReadLine();
         }
     }
 }
