@@ -1,0 +1,16 @@
+﻿1. 10 random numbers - what are the swap costs?
+	Selection sort wins with least swaps, then quicksort, bubblesort, mergesort and finally insertionsort
+
+2. 1000 random numbers - swap costs?
+	selection sort wins, then quick sort is lightly above, and the same for merge sort.  Bubble sort and insertion sort are off the chart with swaps.
+
+3.  1000 random numbers - comparison costs?
+	Merge and Quick sort have the least comparisons. then merge sort has over 20,000 comparisons and then selection sort with over 40K and bubble sort well over 100K comparisons.
+
+4. 1000 sorted numbers - comparison costs?
+   All sorts do well but selection sort has over 500k comparisons.
+
+5. 1000 sorted numbers - swap costs?
+   All sorts do well but Merge sort has over 10k swaps.
+
+To do: update with calculated numbers
