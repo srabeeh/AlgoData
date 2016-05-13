@@ -10,6 +10,12 @@ namespace SortingMethods
     {
         static void Main(string[] args)
         {
+            BubbleSort<int> sort = new BubbleSort<int>();
+
+            int[] nums = new[] {15, 5, 4,1,8,3,9,2,7};
+
+            sort.Sort(nums);
+
         }
     }
 }
