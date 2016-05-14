@@ -28,6 +28,7 @@ namespace SortingMethods
                 if (Compare(items[index], valueToInsert) > 0)
                 {
                     return index;
+                    
                 }
             }
 
